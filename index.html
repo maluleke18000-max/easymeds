@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Easy Meds Pharmacy | Trusted Healthcare & Fast Service</title>
+  <meta name="description" content="Easy Meds Pharmacy offers trusted healthcare, quality medication, supplements, and fast service with WhatsApp ordering." />
+  <meta name="theme-color" content="#0b1f3a" />
+  <title>Easy Meds Pharmacy | Affordable Medicine in Orange Farm</title>
+
+<meta name="description" content="Easy Meds Pharmacy in Orange Farm offers affordable medicine, vitamins, and fast WhatsApp ordering. Visit us today.">
+
+<meta name="keywords" content="pharmacy Orange Farm, medicine South Africa, cheap medicine, vitamins pharmacy">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg: #f5f9ff;
+      --surface: rgba(255,255,255,0.88);
+      --card: #ffffff;
+      --text: #182230;
+      --muted: #5e6b7a;
+      --primary: #0f6fff;
+      --primary-dark: #0a4cb3;
+      --accent: #18b7c9;
+      --success: #25d366;
+      --danger: #d93025;
+      --shadow: 0 18px 50px rgba(11,31,58,0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --max: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(24,183,201,0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(15,111,255,0.12), transparent 24%),
+        linear-gradient(180deg, #f8fbff 0%, #eef5ff 100%);
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: #0b1f3a;
+      color: #dfe8f5;
+      font-size: 13px;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    .topbar span { display: inline-flex; align-items: center; gap: 8px; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(255,255,255,0.82);
+      border-bottom: 1px solid rgba(15,31,58,0.08);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #ffffff, #dcecff);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 6px;
+    }
+
+    .brand-copy h1 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.1;
+    }
+
+    .brand-copy p {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: #223145;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: rgba(15,111,255,0.1);
+      color: var(--primary-dark);
+    }
+
+    .hero {
+      padding: 34px 0 26px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .hero-side {
+      background: var(--surface);
+      border: 1px solid rgba(15,31,58,0.07);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 560px;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(9,20,37,0.06), rgba(9,20,37,0.78));
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .hero-content {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 34px;
+      color: white;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .hero-content h2 {
+      margin: 0 0 14px;
+      font-size: clamp(32px, 4.4vw, 58px);
+      line-height: 1.02;
+      max-width: 11ch;
+    }
+
+    .hero-content p {
+      margin: 0;
+      max-width: 56ch;
+      color: rgba(255,255,255,0.92);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 700;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 16px 28px rgba(15,111,255,0.28);
+    }
+
+    .btn-secondary {
+      color: white;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-side {
+      padding: 24px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .mini-panel {
+      background: white;
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 14px 30px rgba(11,31,58,0.07);
+    }
+
+    .mini-panel h3 {
+      margin: 0 0 14px;
+      font-size: 18px;
+    }
+
+    .trust-grid,
+    .service-grid,
+    .stats-grid,
+    .product-grid,
+    .gallery-grid,
+    .contact-grid,
+    .footer-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .trust-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trust-item {
+      background: linear-gradient(180deg, #f5f9ff, #ffffff);
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(15,31,58,0.06);
+    }
+
+    .trust-item i {
+      font-size: 24px;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .trust-item h4 {
+      margin: 0 0 6px;
+      font-size: 15px;
+    }
+
+    .trust-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .hours {
+      display: grid;
+      gap: 12px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: #f7fbff;
+      border: 1px solid rgba(15,31,58,0.06);
+      font-size: 14px;
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+
+    .section-copy h3 {
+      margin: 0;
+      font-size: clamp(28px, 3vw, 40px);
+    }
+
+    .section-copy p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      max-width: 62ch;
+      line-height: 1.75;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary-dark);
+      background: rgba(15,111,255,0.1);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 6px;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15,31,58,0.07);
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 32px;
+      margin-bottom: 6px;
+    }
+
+    .stat-card span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .service-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15,31,58,0.07);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .service-card:hover,
+    .product-card:hover,
+    .gallery-card:hover,
+    .cart-card:hover,
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 22px 50px rgba(11,31,58,0.15);
+    }
+
+    .service-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      margin-bottom: 16px;
+    }
+
+    .service-card h4,
+    .product-card h4,
+    .gallery-overlay h4,
+    .contact-card h4 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .service-card p,
+    .product-card p,
+    .contact-card p,
+    .footer-col p,
+    .footer-col a,
+    .review-note {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .catalog-wrap {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .catalog-panel,
+    .cart-card,
+    .review-card,
+    .contact-card,
+    .footer-shell {
+      background: white;
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15,31,58,0.07);
+    }
+
+    .catalog-panel {
+      padding: 22px;
+    }
+
+    .shop-toolbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .pill-filter {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(15,31,58,0.1);
+      background: #f7fbff;
+      color: #203146;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .pill.active {
+      background: rgba(15,111,255,0.1);
+      color: var(--primary-dark);
+      border-color: rgba(15,111,255,0.15);
+    }
+
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-card {
+      display: grid;
+      grid-template-rows: 200px auto;
+      background: white;
+      border: 1px solid rgba(15,31,58,0.07);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .product-image {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #eef6ff, #f8fbff);
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-image img { transform: scale(1.06); }
+
+    .product-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(11,31,58,0.82);
+      color: white;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .product-body {
+      padding: 18px;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: 800;
+      color: #102640;
+    }
+
+    .mini-text {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .cart-card {
+      position: sticky;
+      top: 108px;
+      padding: 22px;
+    }
+
+    .cart-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .cart-head h4 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .cart-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+      max-height: 380px;
+      overflow: auto;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      border-radius: 18px;
+      background: #f8fbff;
+      border: 1px solid rgba(15,31,58,0.06);
+    }
+
+    .cart-item-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .cart-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .icon-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 1px solid rgba(15,31,58,0.1);
+      background: white;
+      color: #203146;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+    }
+
+    .remove-btn {
+      color: var(--danger);
+      border-color: rgba(217,48,37,0.18);
+    }
+
+    .cart-summary {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px dashed rgba(15,31,58,0.15);
+      display: grid;
+      gap: 10px;
+    }
+
+    .cart-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+    }
+
+    .cart-total {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .empty-state {
+      padding: 18px;
+      border-radius: 18px;
+      background: #f8fbff;
+      color: var(--muted);
+      text-align: center;
+      border: 1px dashed rgba(15,31,58,0.12);
+    }
+
+    .gallery-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery-card {
+      position: relative;
+      min-height: 320px;
+      overflow: hidden;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15,31,58,0.07);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+
+    .gallery-card:hover img { transform: scale(1.08); }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10,22,40,0.06), rgba(10,22,40,0.82));
+      display: flex;
+      align-items: end;
+      padding: 22px;
+      color: white;
+    }
+
+    .gallery-overlay p {
+      margin: 0;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.6;
+    }
+
+    .review-card {
+      padding: 26px;
+    }
+
+    .review-note {
+      margin: 0 0 18px;
+    }
+
+    .elfsight-wrap {
+      min-height: 200px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(15,31,58,0.07);
+      background: #fff;
+    }
+
+    .contact-grid {
+      grid-template-columns: 0.88fr 1.12fr;
+    }
+
+    .contact-card {
+      padding: 24px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .contact-pill {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 18px;
+      background: #f8fbff;
+      border: 1px solid rgba(15,31,58,0.06);
+    }
+
+    .contact-pill i {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      flex: 0 0 auto;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .input,
+    .textarea,
+    .file-input {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid rgba(15,31,58,0.12);
+      padding: 14px 16px;
+      background: #fbfdff;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .input:focus,
+    .textarea:focus,
+    .file-input:focus {
+      border-color: rgba(15,111,255,0.38);
+      box-shadow: 0 0 0 4px rgba(15,111,255,0.1);
+    }
+
+    .textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .map-container {
+  width: 100%;
+  height: 220px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 20px;
+   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+    .form-note {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 34px 0 38px;
+    }
+
+    .footer-shell {
+      padding: 28px;
+      background:
+        linear-gradient(135deg, rgba(11,31,58,0.96), rgba(11,31,58,0.9)),
+        radial-gradient(circle at top right, rgba(24,183,201,0.18), transparent 30%);
+      color: white;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1.2fr 1fr 0.8fr 0.9fr;
+    }
+
+    .footer-col h4 {
+      margin: 0 0 14px;
+      font-size: 18px;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      color: rgba(255,255,255,0.82);
+      display: block;
+      margin: 0 0 12px;
+    }
+
+    .footer-brand {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      flex-wrap: wrap;
+      color: rgba(255,255,255,0.76);
+      font-size: 14px;
+    }
+
+    .floating-btn {
+      position: fixed;
+      bottom: 22px;
+      z-index: 1002;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      color: white;
+      font-weight: 800;
+      box-shadow: 0 16px 30px rgba(11,31,58,0.28);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+    }
+
+    .floating-btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 22px 36px rgba(11,31,58,0.34);
+    }
+
+    .map-btn { left: 18px; background: linear-gradient(135deg, #ef4444, #c62828); }
+    .whatsapp-btn { right: 18px; background: linear-gradient(135deg, #25d366, #0ea64b); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .catalog-wrap,
+      .contact-grid,
+      .footer-grid,
+      .stats-grid,
+      .service-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .catalog-wrap,
+      .hero-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cart-card { position: static; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 760px) {
+      .topbar-inner,
+      .nav-wrap,
+      .section-head,
+      .shop-toolbar,
+      .field-grid,
+      .stats-grid,
+      .service-grid,
+      .product-grid,
+      .gallery-grid,
+      .trust-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-inner,
+      .nav-wrap,
+      .shop-toolbar,
+      .section-head,
+      .field-grid {
+        display: grid;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+
+      .hero-card { min-height: 500px; }
+      .hero-content { padding: 24px; }
+      .hero-content h2 { max-width: 12ch; }
+      .hero-side { padding: 18px; }
+      .catalog-panel,
+      .cart-card,
+      .review-card,
+      .contact-card,
+      .footer-shell,
+      .stat-card,
+      .service-card { padding: 18px; }
+      .floating-btn { bottom: 14px; padding: 12px 14px; font-size: 13px; }
+      .map-btn { left: 10px; }
+      .whatsapp-btn { right: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span><i class="fa-solid fa-location-dot"></i> R155 Falcon Rd, Stretford, Orange Farm</span>
+      <span><i class="fa-solid fa-phone"></i> +27 76 486 2506 &nbsp; • &nbsp; <i class="fa-solid fa-envelope"></i> info@easymeds.co.za</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav-wrap">
+      <a href="#home" class="brand" aria-label="Easy Meds Pharmacy home">
+        <div class="brand-logo">
+          <img src="logo.jpeg" alt="Easy Meds Pharmacy logo" />
+        </div>
+        <div class="brand-copy">
+          <h1>Easy Meds Pharmacy</h1>
+          <p>Trusted care. Fast service. Everyday wellness.</p>
+        </div>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="#home" class="active">Home</a>
+        <a href="#services">Services</a>
+        <a href="#shop">Shop</a>
+        <a href="#gallery">Categories</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-card reveal">
+          <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1400&q=80')"></div>
+          <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1400&q=80')"></div>
+          <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1400&q=80')"></div>
+          <div class="hero-content">
+            <div class="eyebrow"><i class="fa-solid fa-shield-heart"></i> Professional healthcare support</div>
+            <h2>Your trusted local pharmacy experience.</h2>
+            <p>From vitamins and cold relief to everyday essentials, Easy Meds Pharmacy helps customers shop confidently with trusted service, responsive support, and convenient WhatsApp ordering.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#shop"><i class="fa-solid fa-bag-shopping"></i> Shop Now</a>
+              <a class="btn btn-secondary" href="https://wa.me/27764842506" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-side reveal">
+          <div class="mini-panel">
+            <h3>Why customers choose us</h3>
+            <div class="trust-grid">
+              <div class="trust-item">
+                <i class="fa-solid fa-user-doctor"></i>
+                <h4>Trusted Advice</h4>
+                <p>Friendly support and guidance for everyday healthcare needs.</p>
+              </div>
+              <div class="trust-item">
+                <i class="fa-solid fa-truck-fast"></i>
+                <h4>Fast Response</h4>
+                <p>Quick communication and easy WhatsApp ordering for convenience.</p>
+              </div>
+              <div class="trust-item">
+                <i class="fa-solid fa-capsules"></i>
+                <h4>Quality Products</h4>
+                <p>Reliable products across supplements, cold relief, and wellness care.</p>
+              </div>
+              <div class="trust-item">
+                <i class="fa-solid fa-store"></i>
+                <h4>Community Focused</h4>
+                <p>Serving local families with care, consistency, and professionalism.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mini-panel">
+            <h3>Opening hours</h3>
+            <div class="hours">
+              <div class="hours-row"><strong>Mon - Fri</strong><span>08:00 - 18:00</span></div>
+              <div class="hours-row"><strong>Saturday</strong><span>08:00 - 14:00</span></div>
+              <div class="hours-row"><strong>Sunday</strong><span>Closed</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-copy">
+            <div class="badge"><i class="fa-solid fa-star"></i> Premium local pharmacy</div>
+            
+          </div>
+        </div>
+
+        <div class="stats-grid reveal">
+          <div class="stat-card"><strong>10+</strong><span>Featured pharmacy products</span></div>
+          <div class="stat-card"><strong>24/7</strong><span>WhatsApp order availability</span></div>
+          <div class="stat-card"><strong>100%</strong><span>Responsive mobile-friendly layout</span></div>
+          <div class="stat-card"><strong>1</strong><span>Clean single-file deployment setup</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-copy">
+            <div class="badge"><i class="fa-solid fa-briefcase-medical"></i> Our services</div>
+            <h3>Everyday health support with professional care.</h3>
+          </div>
+        </div>
+
+        <div class="service-grid reveal">
+          <article class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-pills"></i></div>
+            <h4>Prescription Medicines</h4>
+            
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-truck-medical"></i></div>
+            <h4>Fast Service</h4>
+            
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-user-doctor"></i></div>
+            <h4>Pharmacist Advice</h4>
+            
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <h4>Health Supplements</h4>
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-baby"></i></div>
+            <h4>Baby Care</h4>
+            
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-kit-medical"></i></div>
+            <h4>First Aid Supplies</h4>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="shop">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-copy">
+            <div class="badge"><i class="fa-solid fa-cart-shopping"></i> Featured products</div>
+            
+           
+          </div>
+        </div>
+
+        <div class="catalog-wrap reveal">
+          <div class="catalog-panel">
+            <div class="shop-toolbar">
+              <div class="pill-filter" aria-label="Product filters">
+                <button class="pill active" data-filter="all">All</button>
+                <button class="pill" data-filter="vitamins">Vitamins</button>
+                <button class="pill" data-filter="cold">Cold & Flu</button>
+                <button class="pill" data-filter="wellness">Wellness</button>
+              </div>
+              <div class="mini-text">Tap add to build a WhatsApp order instantly.</div>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+              <article class="product-card" data-category="vitamins">
+                <div class="product-image">
+                  <span class="product-badge">Best Seller</span>
+                  <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=900&q=80" alt="Immuno Support Vitamin C Jelly Bears" loading="lazy" />
+                </div>
+                <div class="product-body">
+                  <h4>Immuno Support Vitamin C Jelly Bears</h4>
+                 
+                  <div class="price-row">
+                    <div>
+                      <div class="price">R134</div>
+                      <div class="mini-text">Easy daily wellness</div>
+                    </div>
+                    <button class="btn btn-primary" onclick="addToCart('Immuno Support Vitamin C Jelly Bears', 134)">Add</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card" data-category="vitamins">
+                <div class="product-image">
+                  <span class="product-badge">Popular</span>
+                  <img src="vitamin c powder.jpeg" alt="Vitamin C Powder 250g" loading="lazy" />
+                </div>
+                <div class="product-body">
+                  <h4>Vitamin C Powder 250g</h4>
+                
+                  <div class="price-row">
+                    <div>
+                      <div class="price">R146</div>
+                      <div class="mini-text">250g powder support</div>
+                    </div>
+                    <button class="btn btn-primary" onclick="addToCart('Vitamin C Powder 250g', 146)">Add</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card" data-category="vitamins">
+                <div class="product-image">
+                  <span class="product-badge">Wellness</span>
+                  <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?auto=format&fit=crop&w=900&q=80" alt="Vitamin C Orange Tabs" loading="lazy" />
+                </div>
+                <div class="product-body">
+                  <h4>Vitamin C Orange Tabs</h4>
+                 
+                  <div class="price-row">
+                    <div>
+                      <div class="price">R106</div>
+                      <div class="mini-text">Orange tabs</div>
+                    </div>
+                    <button class="btn btn-primary" onclick="addToCart('Vitamin C Orange Tabs', 106)">Add</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card" data-category="vitamins wellness">
+                <div class="product-image">
+                  <span class="product-badge">Combo</span>
+                  <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=900&q=80" alt="Triple Action Vitamin C and Zinc" loading="lazy" />
+                </div>
+                <div class="product-body">
+                  <h4>Triple Action Vitamin C + Zinc</h4>
+                  
+                  <div class="price-row">
+                    <div>
+                      <div class="price">R81.99</div>
+                      <div class="mini-text">Everyday support</div>
+                    </div>
+                    <button class="btn btn-primary" onclick="addToCart('Triple Action Vitamin C + Zinc', 81.99)">Add</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card" data-category="cold">
+                <div class="product-image">
+                  <span class="product-badge">Cold & Flu</span>
+                  <img src="flue tabs.jpeg" alt="4 Flu Tabs" loading="lazy" />
+                </div>
+                <div class="product-body">
+                  <h4>4 Flu Tabs</h4>
+                  
+                  <div class="price-row">
+                    <div>
+                      <div class="price">R108</div>
+                      <div class="mini-text">Fast relief</div>
+                    </div>
+                    <button class="btn btn-primary" onclick="addToCart('4 Flu Tabs', 108)">Add</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card" data-category="cold">
+                <div class="product-image">
+                  <span class="product-badge">Relief</span>
+                  <img src="flue tabs.jpeg" alt="Sinus Allergy Tabs" loading="lazy" />
+                </div>
+                <div class="product-body">
+                  <h4>Sinus Allergy Tabs</h4>
+                  
+                  <div class="price-row">
+                    <div>
+                      <div class="price">R109</div>
+                      <div class="mini-text">Sinus support</div>
+                    </div>
+                    <button class="btn btn-primary" onclick="addToCart('Sinus Allergy Tabs', 109)">Add</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card" data-category="cold wellness">
+                <div class="product-image">
+                  <span class="product-badge">Syrup</span>
+                  <img src="syrup.jpeg" alt="Cough and Cold Syrup" loading="lazy" />
+                </div>
+                <div class="product-body">
+                  <h4>Cough & Cold Syrup</h4>
+                  
+                  <div class="price-row">
+                    <div>
+                      <div class="price">R70.99</div>
+                      <div class="mini-text">Cold relief syrup</div>
+                    </div>
+                    <button class="btn btn-primary" onclick="addToCart('Cough & Cold Syrup', 70.99)">Add</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card" data-category="cold">
+                <div class="product-image">
+                  <span class="product-badge">Popular</span>
+                  <img src="one day.jpeg" alt="One Day Flu Cure Suspension" loading="lazy" />
+                </div>
+                <div class="product-body">
+                  <h4>One Day Flu Cure Suspension</h4>
+                  
+                  <div class="price-row">
+                    <div>
+                      <div class="price">R89.99</div>
+                      <div class="mini-text">One day care</div>
+                    </div>
+                    <button class="btn btn-primary" onclick="addToCart('One Day Flu Cure Suspension', 89.99)">Add</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card" data-category="wellness">
+                <div class="product-image">
+                  <span class="product-badge">Relief</span>
+                  <img src="flue tabs.jpeg" alt="Pain Relief Tablets" loading="lazy" />
+                </div>
+                <div class="product-body">
+                  <h4>Pain Relief Tablets</h4>
+                 
+                  <div class="price-row">
+                    <div>
+                      <div class="price">R45</div>
+                      <div class="mini-text">Quick relief</div>
+                    </div>
+                    <button class="btn btn-primary" onclick="addToCart('Pain Relief Tablets', 45)">Add</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="product-card" data-category="wellness">
+                <div class="product-image">
+                  <span class="product-badge">Allergy</span>
+                  <img src="flue tabs.jpeg" alt="Allergy Relief Capsules" loading="lazy" />
+                </div>
+                <div class="product-body">
+                  <h4>Allergy Relief Capsules</h4>
+                  
+                  <div class="price-row">
+                    <div>
+                      <div class="price">R75</div>
+                      <div class="mini-text">Allergy support</div>
+                    </div>
+                    <button class="btn btn-primary" onclick="addToCart('Allergy Relief Capsules', 75)">Add</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <aside class="cart-card">
+            <div class="cart-head">
+              <h4>Your Cart</h4>
+              <span class="badge"><i class="fa-solid fa-basket-shopping"></i> Live order</span>
+            </div>
+            <ul class="cart-list" id="cartList"></ul>
+            <div id="emptyCart" class="empty-state">Your cart is empty. Add products to prepare a WhatsApp order.</div>
+            <div class="cart-summary">
+              <div class="cart-row"><span>Items</span><strong id="itemCount">0</strong></div>
+              <div class="cart-row"><span>Total</span><strong class="cart-total">R<span id="total">0.00</span></strong></div>
+              <button class="btn btn-primary" onclick="sendOrder()"><i class="fab fa-whatsapp"></i> Send Order to WhatsApp</button>
+              <button class="btn" onclick="clearCart()" style="background:#eef5ff;color:#17304e;"><i class="fa-solid fa-trash"></i> Clear Cart</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-copy">
+            <div class="badge"><i class="fa-solid fa-layer-group"></i> Categories</div>
+          
+          </div>
+        </div>
+
+        <div class="gallery-grid reveal">
+          <article class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1200&q=80" alt="Pain relief products" loading="lazy" />
+            <div class="gallery-overlay">
+              <div>
+                <h4>Pain Relief</h4>
+                <p>Support everyday care with trusted pain relief essentials and easy access ordering.</p>
+              </div>
+            </div>
+          </article>
+          <article class="gallery-card">
+            <img src="vitamin c powder.jpeg" alt="Vitamin products" loading="lazy" />
+            <div class="gallery-overlay">
+              <div>
+                <h4>Vitamins</h4>
+                <p>Highlight immune support, wellness supplements, and daily health essentials.</p>
+              </div>
+            </div>
+          </article>
+          <article class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?auto=format&fit=crop&w=1200&q=80" alt="Cold and flu products" loading="lazy" />
+            <div class="gallery-overlay">
+              <div>
+                <h4>Cold & Flu</h4>
+                
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <div class="container">
+        <div class="review-card reveal">
+          <div class="section-head">
+            <div class="section-copy">
+              <div class="badge"><i class="fa-solid fa-comments"></i> Reviews</div>
+              
+            </div>
+          </div>
+          <div class="elfsight-wrap">
+            <script src="https://elfsightcdn.com/platform.js" async></script>
+            <div class="elfsight-app-620c6e9f-dcd4-4e49-8d11-e55928a47683" data-elfsight-app-lazy></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-grid reveal">
+          <div class="contact-card">
+            <div class="badge"><i class="fa-solid fa-address-book"></i> Contact us</div>
+            <h4 style="font-size:30px;margin:16px 0 10px;">Visit, call, or send a prescription request.</h4>
+            
+            <div class="contact-list">
+              <div class="contact-pill"><i class="fa-solid fa-location-dot"></i><div><strong>Location</strong><br />R155 Falcon Rd, Stretford, Orange Farm</div></div>
+              <div class="contact-pill"><i class="fa-solid fa-phone"></i><div><strong>Phone</strong><br />+27 76 486 2506</div></div>
+              <div class="contact-pill"><i class="fa-solid fa-envelope"></i><div><strong>Email</strong><br />info@easymeds.co.za</div></div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="badge"><i class="fa-solid fa-file-medical"></i> Upload prescription</div>
+            <h4 style="font-size:28px;margin:16px 0 10px;">Submit a prescription request</h4>
+           
+            <form onsubmit="event.preventDefault(); alert('Form design is ready. Connect it to a form service or backend to receive uploads live.');">
+              <div class="field-grid">
+                <input class="input" type="text" placeholder="Full name" required />
+                <input class="input" type="email" placeholder="Email address" required />
+              </div>
+              <input class="input" type="tel" placeholder="Phone number" />
+              <input class="file-input" type="file" />
+              <textarea class="textarea" placeholder="Tell us what you need"></textarea>
+              <button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Submit Request</button>
+              <p class="form-note">For the fastest response, customers can also order directly on WhatsApp.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a href="https://maps.app.goo.gl/zPHrfq4CnYEpXxGY8" target="_blank" rel="noopener" class="floating-btn map-btn" aria-label="Directions">
+    <i class="fas fa-map-marker-alt"></i><span>Directions</span>
+  </a>
+
+  <a href="https://wa.me/27764842506" target="_blank" rel="noopener" class="floating-btn whatsapp-btn" aria-label="Chat with us on WhatsApp">
+    <i class="fab fa-whatsapp"></i><span>Chat With Us</span>
+  </a>
+  <section id="contact">
+   <h2>Find Us</h2>
+
+   <div class="map-container">
+      
+        
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7141.509329949325!2d27.8435673!3d-26.495843!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95ab613edf7d8d%3A0x7c2e94b4da0db9ff!2sEasyMeds%20Pharmacy!5e0!3m2!1sen!2sza!4v1774101010474!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+   </div>
+</section>
+
+  <footer class="footer" id="connect">
+    <div class="container footer-shell reveal">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">Easy Meds Pharmacy</div>
+          <p>Trusted healthcare, quality medication, and professional service with a polished online experience built for speed, trust, and convenience.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>R155 Falcon Rd, Stretford, Orange Farm</p>
+          <p>+27 76 486 2506</p>
+          <p>info@easymeds.co.za</p>
+          
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#shop">Shop</a>
+          <a href="#reviews">Reviews</a>
+        </div>
+        <div class="footer-col">
+          <h4>Opening Hours</h4>
+          <p>Mon - Fri: 08:00 - 18:00</p>
+          <p>Saturday: 08:00 - 14:00</p>
+          <p>Sunday: Closed</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Easy Meds Pharmacy. All rights reserved.</span>
+        
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const slides = document.querySelectorAll('.hero-slide');
+    let activeSlide = 0;
+    setInterval(() => {
+      slides[activeSlide].classList.remove('active');
+      activeSlide = (activeSlide + 1) % slides.length;
+      slides[activeSlide].classList.add('active');
+    }, 4500);
+
+    const cart = [];
+
+    function addToCart(name, price) {
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name, price, qty: 1 });
+      }
+      renderCart();
+    }
+
+    function changeQty(name, delta) {
+      const item = cart.find(product => product.name === name);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) {
+        const index = cart.findIndex(product => product.name === name);
+        if (index > -1) cart.splice(index, 1);
+      }
+      renderCart();
+    }
+
+    function removeItem(name) {
+      const index = cart.findIndex(product => product.name === name);
+      if (index > -1) cart.splice(index, 1);
+      renderCart();
+    }
+
+    function clearCart() {
+      cart.length = 0;
+      renderCart();
+    }
+
+    function renderCart() {
+      const list = document.getElementById('cartList');
+      const totalEl = document.getElementById('total');
+      const itemCount = document.getElementById('itemCount');
+      const empty = document.getElementById('emptyCart');
+      list.innerHTML = '';
+
+      let total = 0;
+      let count = 0;
+
+      cart.forEach(item => {
+        total += item.price * item.qty;
+        count += item.qty;
+
+        const li = document.createElement('li');
+        li.className = 'cart-item';
+        li.innerHTML = `
+          <div>
+            <div class="cart-item-title">${item.name}</div>
+            <div class="mini-text">R${item.price.toFixed(2)} each</div>
+            <div class="cart-controls">
+              <button class="icon-btn" onclick="changeQty('${item.name.replace(/'/g, "\\'")}', -1)">−</button>
+              <strong>${item.qty}</strong>
+              <button class="icon-btn" onclick="changeQty('${item.name.replace(/'/g, "\\'")}', 1)">+</button>
+            </div>
+          </div>
+          <div style="text-align:right;display:grid;gap:10px;justify-items:end;">
+            <strong>R${(item.price * item.qty).toFixed(2)}</strong>
+            <button class="icon-btn remove-btn" onclick="removeItem('${item.name.replace(/'/g, "\\'")}')"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+        `;
+        list.appendChild(li);
+      });
+
+      totalEl.textContent = total.toFixed(2);
+      itemCount.textContent = count;
+      empty.style.display = cart.length ? 'none' : 'block';
+    }
+
+    function sendOrder() {
+      if (!cart.length) {
+        alert('Your cart is empty. Add some products first.');
+        return;
+      }
+
+      let message = 'Hello Easy Meds Pharmacy, I would like to place an order:%0A%0A';
+      let total = 0;
+
+      cart.forEach(item => {
+        const lineTotal = item.price * item.qty;
+        total += lineTotal;
+        message += `• ${item.name} x ${item.qty} = R${lineTotal.toFixed(2)}%0A`;
+      });
+
+      message += `%0ATotal: R${total.toFixed(2)}%0A%0APlease assist me with this order.`;
+      window.open(`https://wa.me/27764842506?text=${message}`, '_blank');
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const filterButtons = document.querySelectorAll('.pill');
+    const productCards = document.querySelectorAll('.product-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        const selected = button.dataset.filter;
+
+        productCards.forEach(card => {
+          const categories = card.dataset.category;
+          card.style.display = selected === 'all' || categories.includes(selected) ? 'grid' : 'none';
+        });
+      });
+    });
+
+    const floatingButtons = document.querySelectorAll('.floating-btn');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const current = window.pageYOffset || document.documentElement.scrollTop;
+      floatingButtons.forEach(btn => {
+        btn.style.opacity = current > lastScroll && current > 100 ? '0.86' : '1';
+      });
+      lastScroll = current <= 0 ? 0 : current;
+    });
+  </script>
+</body>
+</html>
