@@ -1025,6 +1025,62 @@
       .map-btn { left: 10px; }
       .whatsapp-btn { right: 10px; }
     }
+    .policy-card {
+  max-width: 600px;
+  margin: 20px auto;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.policy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  background: linear-gradient(135deg, #0d6efd, #0a58ca);
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.policy-header:hover {
+  background: linear-gradient(135deg, #0b5ed7, #084298);
+}
+.policy-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  padding: 0 20px;
+  background: #f9fbff;
+}
+
+/* 👇 when open */
+.policy-content.active {
+  max-height: 250px;   /* controls visible height */
+  overflow-y: auto;    /* enables scrolling */
+  padding: 20px;
+}
+
+/* 🔥 smooth scrollbar (optional premium look) */
+.policy-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.policy-content::-webkit-scrollbar-thumb {
+  background: #0d6efd;
+  border-radius: 10px;
+}
+
+
+.contact {
+  font-weight: bold;
+  color: #0d6efd;
+}
   </style>
 </head>
 <body>
@@ -1054,6 +1110,7 @@
         <a href="#gallery" title="Health and wellness categories">Health Categories</a>
         <a href="#reviews" title="Customer reviews for Easymeds Pharmacy">Customer Reviews</a>
         <a href="#contact" title="Contact Easymeds Pharmacy">Contact Us</a>
+        <a href="#return-policy" id="return-policy">Return Policy</a>
       </nav>
     </div>
   </header>
@@ -1170,11 +1227,33 @@
             <h4>Baby Care</h4>
             <p>Essential baby care items for growing families in Orange Farm.</p>
           </article>
-          <article class="service-card">
+          <article class="service-card" id="return-policy">
             <div class="service-icon"><i class="fa-solid fa-kit-medical"></i></div>
             <h4>First Aid Supplies</h4>
             <p>Important first aid products for home, travel, and everyday emergencies.</p>
           </article>
+          <div class="policy-card">
+  <div class="policy-header" onclick="togglePolicy()">
+    <span>Return Policy</span>
+    <span id="arrow">+</span>
+  </div>
+
+  <div class="policy-content" id="policyContent">
+    <p>At Easymeds Pharmacy, we prioritize your health and safety.</p>
+
+    <p>We do not accept returns on medication unless:</p>
+
+    <ul>
+      <li>Product is defective</li>
+      <li>Product is damaged</li>
+      <li>Wrong item was supplied</li>
+    </ul>
+
+    <p>Contact us within <strong>24–48 hours</strong> with proof and images.</p>
+
+    <p class="contact">WhatsApp: 076 484 25066</p>
+  </div>
+</div>
         </div>
       </div>
     </section>
@@ -1684,6 +1763,16 @@
       });
       lastScroll = current <= 0 ? 0 : current;
     });
+    
+function togglePolicy() {
+  const content = document.getElementById("policyContent");
+  const arrow = document.getElementById("arrow");
+
+  content.classList.toggle("active");
+
+  arrow.innerText = content.classList.contains("active") ? "−" : "+";
+}
+
   </script>
 </body>
 </html>
