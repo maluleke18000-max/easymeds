@@ -144,6 +144,16 @@
       backdrop-filter: blur(18px);
       background: rgba(255,255,255,0.82);
       border-bottom: 1px solid rgba(15,31,58,0.08);
+      transition: transform 0.35s ease, background 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    header.nav-hidden {
+      transform: translateY(-100%);
+    }
+
+    header.nav-scrolled {
+      background: rgba(255,255,255,0.94);
+      box-shadow: 0 16px 35px rgba(11,31,58,0.08);
     }
 
     .nav-wrap {
@@ -192,7 +202,7 @@
       font-size: 13px;
     }
 
-    nav {
+    .site-nav {
       display: flex;
       align-items: center;
       gap: 8px;
@@ -200,7 +210,7 @@
       justify-content: flex-end;
     }
 
-    nav a {
+    .site-nav a {
       padding: 10px 14px;
       border-radius: 999px;
       color: #223145;
@@ -208,10 +218,46 @@
       transition: 0.25s ease;
     }
 
-    nav a:hover,
-    nav a.active {
+    .site-nav a:hover,
+    .site-nav a.active {
       background: rgba(15,111,255,0.1);
       color: var(--primary-dark);
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 52px;
+      height: 52px;
+      border: 1px solid rgba(15,31,58,0.1);
+      border-radius: 16px;
+      background: white;
+      cursor: pointer;
+      box-shadow: 0 10px 22px rgba(11,31,58,0.08);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #17304e;
+      border-radius: 999px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
     }
 
     .hero {
@@ -1006,8 +1052,42 @@
         display: grid;
       }
 
-      nav {
-        justify-content: flex-start;
+      .nav-wrap {
+        grid-template-columns: 1fr auto;
+        align-items: center;
+      }
+
+      .brand {
+        min-width: 0;
+      }
+
+      .brand-copy p {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .site-nav {
+        display: none;
+        grid-column: 1 / -1;
+        width: 100%;
+        margin-top: 10px;
+        padding: 12px;
+        background: rgba(255,255,255,0.98);
+        border: 1px solid rgba(15,31,58,0.08);
+        border-radius: 20px;
+        box-shadow: 0 18px 30px rgba(11,31,58,0.08);
+      }
+
+      .site-nav.open {
+        display: grid;
+      }
+
+      .site-nav a {
+        width: 100%;
+        border-radius: 14px;
       }
 
       .hero-card { min-height: 500px; }
@@ -1091,7 +1171,7 @@
     </div>
   </div>
 
-  <header>
+  <header id="siteHeader">
     <div class="container nav-wrap">
       <a href="#home" class="brand" aria-label="Easymeds Pharmacy home">
         <div class="brand-logo">
@@ -1103,7 +1183,13 @@
         </div>
       </a>
 
-      <nav aria-label="Main navigation">
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="siteNav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="siteNav" class="site-nav" aria-label="Main navigation">
         <a href="#home" class="active" title="Easymeds Pharmacy home">Home</a>
         <a href="#services" title="Pharmacy services in Orange Farm">Pharmacy Services</a>
         <a href="#shop" title="Shop medicine online in Orange Farm">Shop Medicine</a>
@@ -1767,11 +1853,61 @@
 function togglePolicy() {
   const content = document.getElementById("policyContent");
   const arrow = document.getElementById("arrow");
-
   content.classList.toggle("active");
-
   arrow.innerText = content.classList.contains("active") ? "−" : "+";
 }
+
+const siteHeader = document.getElementById("siteHeader");
+const navToggle = document.getElementById("navToggle");
+const siteNav = document.getElementById("siteNav");
+let lastScrollTop = 0;
+
+if (navToggle && siteNav) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = siteNav.classList.toggle("open");
+    navToggle.classList.toggle("active", isOpen);
+    navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+
+  siteNav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 760) {
+        siteNav.classList.remove("open");
+        navToggle.classList.remove("active");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+}
+
+window.addEventListener("scroll", () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (siteHeader) {
+    siteHeader.classList.toggle("nav-scrolled", scrollTop > 16);
+
+    if (window.innerWidth > 760) {
+      if (scrollTop > lastScrollTop && scrollTop > 120) {
+        siteHeader.classList.add("nav-hidden");
+      } else {
+        siteHeader.classList.remove("nav-hidden");
+      }
+    } else {
+      siteHeader.classList.remove("nav-hidden");
+    }
+  }
+
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 760 && siteNav && navToggle) {
+    siteNav.classList.remove("open");
+    navToggle.classList.remove("active");
+    navToggle.setAttribute("aria-expanded", "false");
+    if (siteHeader) siteHeader.classList.remove("nav-hidden");
+  }
+});
 
   </script>
 </body>
